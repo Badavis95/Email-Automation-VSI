@@ -1,0 +1,34 @@
+# Prompt user for input
+$store = Read-Host "Enter Store"
+$registerNum = Read-Host "Enter Register #"
+$numOfRegisters = Read-Host "Enter Number of Registers at the store"
+$typeOfRegister = Read-Host "Enter Type of Register"
+$nextTransactionNum = Read-Host "Enter Next Transaction #"
+$ezvTicket = Read-Host "Enter EZV Ticket #"
+$ipAddress = Read-Host "Enter IP Address"
+$tillFloat = Read-Host "Enter Till Float"
+$safeFloat = Read-Host "Enter Safe Float"
+
+# Format the message
+$message = @"
+Good Afternoon,
+
+Can you please image hard drives for Store $store
+
+• Register # : $registerNum
+• Number of Registers at the store: $numOfRegisters
+• Type of Register: $typeOfRegister
+• Next Transaction # : $nextTransactionNum
+• EZV Ticket #: $ezvTicket
+• IP Address: $ipAddress
+• Till Float: $tillFloat
+• Safe Float: $safeFloat
+
+Thank you,
+"@
+
+# Generate the filename
+$filePath = "Store $store Register $registerNum New Hard Drive Request.txt"
+$message | Out-File -Append $filePath
+
+Write-Host "File updated successfully!"
