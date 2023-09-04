@@ -27,11 +27,10 @@ Can you please image hard drives for Store {store}
 Thank you,
 """
 
-# Write to file
-file_path = input("Enter file path (leave blank to create a new file): ")
-if not file_path:
-    file_path = "request.txt"
+# Generate the filename
+file_path = f"Store {store} Register {registerNum} New Hard Drive Request.txt"
 with open(file_path, 'a') as file:
     file.write(message)
 
 print("File updated successfully!")
+
